@@ -7,13 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "git+https://github.com/MatheusMRosa/FastFix.git",
-  "author": "Matheus Moises da Rosa <matheusmoises.rosa@gmail.com>",
+  "author": "Matheus Moises da Rosa",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MatheusMRosa/FastFix/issues"
   },
   "homepage": "https://github.com/MatheusMRosa/FastFix#readme",
-  "dependencies": {
-    "create-react-app": "^1.5.2"
+  "devDependencies": {
+    "electron": "1.8.3"
   }
 }
