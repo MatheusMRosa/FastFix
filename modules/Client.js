@@ -30,7 +30,7 @@ function Client() {
     var saveChangesBool = false;
     var saveChangesInfoBool = false;
 
-    function registerClient(name, cpf_cnpj, typeOfClient, company, phone, email, address) {
+    this.registerClient = function(name, cpf_cnpj, typeOfClient, company, phone, email, address) {
         this.setName(name);
         this.setCpf_Cnpj(cpf_cnpj);
         this.setTypeOfClient(typeOfClient);
@@ -42,9 +42,9 @@ function Client() {
         if (saveChangesBool) {
             this.saveChanges();
         }
-    }
+    };
     
-    function listClients() {
+    this.listClients = function () {
         listClientsArray.append(this.getName());
         listClientsArray.append(this.getCpf_Cnpj());
         listClientsArray.append(this.getTypeOfClient());
@@ -54,13 +54,9 @@ function Client() {
         listClientsArray.append(this.getAddress());
 
         return listClientsArray;
-    }
+    };
 
-    function saveChanges() {
-        // To do the connection with DB for to save the changes in DB
-    }
-
-    function changeClientInfo(company, phone, email, address) { // Do a change of info of client case need, but not change the CPF_CNPJ, name or typeOfClient, because this not need to change.
+    this.changeClientInfo = function(company, phone, email, address) { // Do a change of info of client case need, but not change the CPF_CNPJ, name or typeOfClient, because this not need to change.
         this.setCompany(company);
         this.setPhone(phone);
         this.setEmail(email);
@@ -69,6 +65,10 @@ function Client() {
         if (saveChangesInfoBool) {
             this.saveChanges();
         }
+    };
+
+    function saveChanges() {
+        // To do the connection with DB for to save the changes in DB
     }
 
     function consultClientService() {
