@@ -1,3 +1,23 @@
+/*
+Create by Matheus Moises da Rosa
+
+Análise e Desenvolvimento de Sistemas
+
+PMI - III
+
+In this class have information of client
+
+To do:
+-connection with DB
+-verifies for null vars
+-reorganize case necessary
+
+But, for the first presentation the functions more embracing, without many functionalities
+
+ */
+
+
+
 function Client() {
     var cpf_cnpj;
     var typeOfClient;
@@ -6,6 +26,9 @@ function Client() {
     var phone;
     var email;
     var address;
+    var listClientsArray = [];
+    var saveChangesBool = false;
+    var saveChangesInfoBool = false;
 
     function registerClient(name, cpf_cnpj, typeOfClient, company, phone, email, address) {
         this.setName(name);
@@ -15,16 +38,45 @@ function Client() {
         this.setPhone(phone);
         this.setEmail(email);
         this.setAddress(address);
+
+        if (saveChangesBool) {
+            this.saveChanges();
+        }
     }
     
     function listClients() {
-        this.getName();
-        this.getCpf_Cnpj();
-        this.getTypeOfClient();
-        this.getCompany();
-        this.getPhone();
-        this.getEmail();
-        this.getAddress();
+        listClientsArray.append(this.getName());
+        listClientsArray.append(this.getCpf_Cnpj());
+        listClientsArray.append(this.getTypeOfClient());
+        listClientsArray.append(this.getCompany());
+        listClientsArray.append(this.getPhone());
+        listClientsArray.append(this.getEmail());
+        listClientsArray.append(this.getAddress());
+
+        return listClientsArray;
+    }
+
+    function saveChanges() {
+        // To do the connection with DB for to save the changes in DB
+    }
+
+    function changeClientInfo(company, phone, email, address) { // Do a change of info of client case need, but not change the CPF_CNPJ, name or typeOfClient, because this not need to change.
+        this.setCompany(company);
+        this.setPhone(phone);
+        this.setEmail(email);
+        this.setAddress(address);
+
+        if (saveChangesInfoBool) {
+            this.saveChanges();
+        }
+    }
+
+    function consultClientService() {
+        //To do the ligation of client and Service for know what client to be linked for service
+    }
+
+    function makeGraphic() {
+        //To do make a report for User master
     }
 
     //Section Of Get and Set of Variables
