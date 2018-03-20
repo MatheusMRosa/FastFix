@@ -67,19 +67,23 @@ function Client() {
         }
     };
 
-    function saveChanges() {
+    this.saveChanges = function() {
         // To do the connection with DB for to save the changes in DB
-    }
+    };
 
-    function consultClientService() {
+    this. consultClientService = function() {
         //To do the ligation of client and Service for know what client to be linked for service
-    }
+    };
 
-    function makeGraphic() {
+    this. makeGraphic = function() {
         //To do make a report for User master
-    }
+    };
 
-    //Section Of Get and Set of Variables
+    /*
+
+    Section Of Get and Set of Variables
+
+    */
 
     this.setName = function (newName) {
         name = newName
