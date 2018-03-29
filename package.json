@@ -15,5 +15,8 @@
   "homepage": "https://github.com/MatheusMRosa/FastFix#readme",
   "devDependencies": {
     "electron": "1.8.3"
+  },
+  "dependencies": {
+    "npm": "^5.8.0"
   }
 }

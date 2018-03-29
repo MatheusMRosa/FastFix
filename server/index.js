@@ -1,10 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const client = require('./entities/client');
-
+const user = require('./api/user');
 const app = express();
 
-
+app.use("/api/user", user);
 
 app.get('/api/client',(req,res) => {
     //populate
@@ -40,6 +40,5 @@ app.listen(3030,'0.0.0.0', () => {
         console.log('He is alive');
         mongoose.connect('mongodb://localhost/test');
 
-        console.log('client: ',client.find({}));
 
 });
