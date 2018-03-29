@@ -12,6 +12,15 @@ app.get("", (req,res) => {
     })
 })
 
+app.get("/:id", (req, res) => {
+    product.findById(req.params.id, {}, (err, data) => {
+        if (err) {
+            return res.sendStatus(500)
+        }
+        res.json(data || [])
+    })
+})
+
 app.put("", (req,res) => {
     let _new = new product (req.body)
     _new.save((err, saved) => {
