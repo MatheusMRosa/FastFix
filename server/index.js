@@ -1,37 +1,20 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const client = require('./entities/client');
+
 const user = require('./api/user');
+const client = require('./api/client');
+const product = require('./api/product');
+const typeOfService = require('./api/typeOfService');
+
 const app = express();
 
 app.use("/api/user", user);
 
-app.get('/api/client',(req,res) => {
-    //populate
-    client.find({}, (err, list)=>{
-        res.json(list);
-    })
+app.use('/api/client', client);
 
-});
+app.use('/api/product', product);
 
-
-app.get('/api/addjose',(req,res) => {
-    let jose = new client({
-        nome: 'Jose',
-        ordens: [
-            {
-                numero: 1
-            }
-        ]
-    });
-    jose.save((error, saved) => {
-        if (error) {
-            console.error("Error: ",error);
-            return res.sendStatus(500);
-        }
-        res.json(saved);
-    });
-});
+app.use('/api/typeofservice', typeOfService);
 
 
 
