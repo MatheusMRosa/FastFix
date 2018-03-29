@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser')
 
 const user = require('./api/user');
 const client = require('./api/client');
@@ -7,6 +8,10 @@ const product = require('./api/product');
 const typeOfService = require('./api/typeOfService');
 
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }))
+
+app.use(bodyParser.json())
 
 app.use("/api/user", user);
 

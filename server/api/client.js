@@ -24,7 +24,7 @@ app.put("", (req,res) => {
 
 app.delete("/:id", (req, res) => {
     //TODO fazer modificação para ativo e inativo
-    client.findByIdAndRemove(id, (err, data) => {
+    client.findByIdAndRemove(req.params.id, (err, data) => {
         if (err){
             return res.sendStatus(500)
         }
@@ -33,7 +33,7 @@ app.delete("/:id", (req, res) => {
 })
 
 app.post("/:id", (req, res) => {
-    client.findByIdAndUpdate(id, req.body, (err, data) => {
+    client.findByIdAndUpdate(req.params.id, req.body, (err, data) => {
         if (err) {
             return res.sendStatus(500)
         }
