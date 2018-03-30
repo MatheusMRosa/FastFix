@@ -3,8 +3,8 @@ const user = require('../entities/user');
 
 const app = express();
 
-app.get("", (req,res) => {
-    user.find({}, {__v: false, pass: false}, (err, data) => {
+app.get("", (req, res) => {
+    user.find({}, { __v: false, pass: false }, (err, data) => {
         if (err) {
             return res.sendStatus(500)
         }
@@ -21,8 +21,8 @@ app.get("/:id", (req, res) => {
     })
 })
 
-app.put("", (req,res) => {
-    let _new = new user (req.body)
+app.put("", (req, res) => {
+    let _new = new user(req.body)
     _new.save((err, saved) => {
         if (err) {
             return res.status(500).send(err);
@@ -34,7 +34,7 @@ app.put("", (req,res) => {
 app.delete("/:id", (req, res) => {
     //TODO fazer modificação para ativo e inativo
     user.findByIdAndRemove(req.params.id, (err, data) => {
-        if (err){
+        if (err) {
             return res.sendStatus(500)
         }
         return res.sendStatus(200)

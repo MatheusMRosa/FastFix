@@ -3,7 +3,7 @@ const typeOfService = require('../entities/typeOfService');
 
 const app = express();
 
-app.get("", (req,res) => {
+app.get("", (req, res) => {
     typeOfService.find({}, (err, data) => {
         if (err) {
             return res.sendStatus(500)
@@ -21,8 +21,8 @@ app.get("/:id", (req, res) => {
     })
 })
 
-app.put("", (req,res) => {
-    let _new = new typeOfService (req.body)
+app.put("", (req, res) => {
+    let _new = new typeOfService(req.body)
     _new.save((err, saved) => {
         if (err) {
             return res.status(500).send(err);
@@ -34,7 +34,7 @@ app.put("", (req,res) => {
 app.delete("/:id", (req, res) => {
     //TODO fazer modificação para ativo e inativo
     typeOfService.findByIdAndRemove(req.params.id, (err, data) => {
-        if (err){
+        if (err) {
             return res.sendStatus(500)
         }
         return res.sendStatus(200)
