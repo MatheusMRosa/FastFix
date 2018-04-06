@@ -28,7 +28,7 @@ app.use('/api/typeofservice', typeOfService);
 app.listen(3030, '0.0.0.0', () => {
 
         console.log('He is alive');
-        mongoose.connect('mongodb://localhost/test');
+        mongoose.connect('mongodb://fastfix:fastfix@ds036967.mlab.com:36967/fastfix');
 
 
 });
