@@ -13,6 +13,9 @@ class ProductList extends Component {
             list: []
         }
     }
+    onUserChanged () {
+
+    }
     componentDidMount() {
         axios.put('http://localhost:3030/api/user', {user: this.state.user, pass: this.state.pass}).then((res, err) => {
             console.log("Resposta: ",res)
@@ -27,7 +30,7 @@ class ProductList extends Component {
                 </tr>
                 <tr>
                     <tr>Senha</tr>
-                    <td><input value={this.state.pass} onChange={this.onCPFChanged} /></td>
+                    <td><input value={this.state.pass}/></td>
                 </tr>
             </table>
 

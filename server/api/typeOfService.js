@@ -10,7 +10,7 @@ app.get("", (req, res) => {
         }
         res.json(data || [])
     })
-})
+});
 
 app.get("/:id", (req, res) => {
     typeOfService.findById(req.params.id, {}, (err, data) => {
@@ -19,17 +19,17 @@ app.get("/:id", (req, res) => {
         }
         res.json(data || [])
     })
-})
+});
 
 app.put("", (req, res) => {
-    let _new = new typeOfService(req.body)
+    let _new = new typeOfService(req.body);
     _new.save((err, saved) => {
         if (err) {
             return res.status(500).send(err);
         }
         res.json(saved)
     })
-})
+});
 
 app.delete("/:id", (req, res) => {
     //TODO fazer modificação para ativo e inativo
@@ -39,7 +39,7 @@ app.delete("/:id", (req, res) => {
         }
         return res.sendStatus(200)
     })
-})
+});
 
 app.post("/:id", (req, res) => {
     typeOfService.findByIdAndUpdate(req.params.id, req.body, (err, data) => {
@@ -48,6 +48,6 @@ app.post("/:id", (req, res) => {
         }
         return res.sendStatus(200)
     })
-})
+});
 
-module.exports = app
+module.exports = app;
